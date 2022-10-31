@@ -41,7 +41,7 @@ pipeline {
               //sh "mvn sonar:sonar -o -gs `pwd`/configuration/settings.xml -Dsonar.host.url=http://192.168.107.11:30505"
               //withCredentials([string(credentialsId: "$SONAR_CREDENTIAL_ID", variable: 'SONAR_TOKEN')]) {
                 withSonarQubeEnv('sonar') {
-                 println ${env.SONAR_HOST_URL} 
+                 println "${env.SONAR_HOST_URL}"
                  sh "mvn sonar:sonar -o -gs `pwd`/configuration/settings.xml -Dsonar.login=$SONAR_TOKEN"
                 }
               //}
